@@ -1,17 +1,7 @@
 ﻿#############
 ## Idea
 #############
-target/
-.idea/
-.idea
-.repository/
-*.iml
-*.iws
-*.jrtc
-*.java
-*.class
-*.info
-*.properties
+#
 
 #/1.JavaSyntax/
 /2.JavaCore/
