@@ -1,37 +1,41 @@
 package com.javarush.task.task08.task0817;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-/* 
+/*
 Нам повторы не нужны
 */
 
 public class Solution {
+
     public static HashMap<String, String> createMap() {
         //напишите тут ваш код
-        HashMap<String, String> hashMap = new HashMap<>();
-        for (int i = 0; i < 8; i++)
-            hashMap.put("Иванов" + i, "Ванес");
-            hashMap.put("2134", "123");
-            hashMap.put("2133", "123");
-
+        HashMap<String,String> hashMap = new HashMap<>();
+        for (int i=1; i<7; i++)
+            hashMap.put("" +i, "NeedToDeleteThisName");
+        hashMap.put("7","ThisNameMustBeSaved");
+        hashMap.put("8","ThisNameMustBeSavedToo");
+        hashMap.put("9","ThisMustNotBeSaved");
+        hashMap.put("10","ThisMustNotBeSaved");
         return hashMap;
     }
 
     public static void removeTheFirstNameDuplicates(HashMap<String, String> map) {
         //напишите тут ваш код
-        Iterator<HashMap.Entry<String, String>> iterator = map.entrySet().iterator();
-        //String name = "";
-        //for (int i = 0; i < map.size(); i++)
-            while (iterator.hasNext()) {
-                removeItemFromMapByValue(map, iterator.next().getValue());
+        HashMap<String,Integer> mapHelper = new HashMap<>();
+        for (HashMap.Entry<String,String> pair : map.entrySet()) {
+                mapHelper.put(pair.getValue(), 0);
+        }
+//        System.out.println(mapHelper);
 
-/*                while (iterator.hasNext())
-                    if (iterator.next().getValue().equals(name))
-                        iterator.remove();*/
-            }
+        for (HashMap.Entry<String,String> pair : map.entrySet())
+            mapHelper.put(pair.getValue(), mapHelper.get(pair.getValue())+1);
+//        System.out.println(mapHelper);
+
+        for (HashMap.Entry<String,Integer> pair : mapHelper.entrySet())
+            if (pair.getValue() > 1)
+                removeItemFromMapByValue(map,pair.getKey());
     }
 
     public static void removeItemFromMapByValue(HashMap<String, String> map, String value) {
@@ -43,9 +47,13 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        HashMap<String, String> hashMap = createMap();
-        System.out.println(hashMap);
-        removeTheFirstNameDuplicates(hashMap);
-        System.out.println(hashMap);
+//        HashMap<String,String> map = createMap();
+////        System.out.println(map.size());
+////        System.out.println(map);
+//////        System.out.println(map.get("3456346"));
+//        removeTheFirstNameDuplicates(map);
+//        System.out.println(map);
     }
+
+
 }
