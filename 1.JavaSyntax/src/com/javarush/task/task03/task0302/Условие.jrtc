@@ -11,6 +11,6 @@ taskKey="com.javarush.task.task03.task0302"
 3.	Метод printString должен быть static.
 4.	Метод printString должен быть public.
 5.	Метод printString должен выводить переданный текст на экран.
-6.	Программа должна вывести «Hello Amigo!».
+6.	Программа должна вывести "Hello Amigo!".
 
 
